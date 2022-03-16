@@ -152,6 +152,82 @@ function isSubsequence(str1, str2) {
 
 /////////SLIDING WIDNOW-maxSubarraySum///
 
-function maxSubarraySum(arr, n) {}
+function maxSubarraySum(arr, n) {
+  if (arr.length < n) return null;
 
-console.log([100, 200, 300, 400], 2); // 700
+  let total = 0;
+  for (let i = 0; i < n; i++) {
+    total += arr[i];
+  }
+  let currTotal = total;
+  for (let i = n; i < arr.length; i++) {
+    console.log("i", i);
+    console.log("arr[i]", arr[i]);
+    currTotal += arr[i] - arr[i - n];
+    console.log("arr[i - n]", arr[i - n]);
+    console.log(currTotal);
+    total = Math.max(currTotal, total);
+  }
+  return total;
+}
+
+// console.log(maxSubarraySum([100, 200, 300, 400, 450], 2)); // 700
+
+////////Sliding Window -minSubArrayLen ///////
+
+function minSubArrayLen(nums, sum) {
+  let total = 0;
+  let start = 0;
+  let end = 0;
+  let minLen = Infinity;
+
+  while (start < nums.length) {
+    if (total < sum && end < nums.length) {
+      total += nums[end];
+      end++;
+    } else if (total >= sum) {
+      minLen = Math.min(minLen, end - start);
+      total -= nums[start];
+      start++;
+    } else {
+      break;
+    }
+  }
+  return minLen === Infinity ? 0 : minLen;
+}
+
+// console.log(minSubArrayLen([2, 3, 1, 2, 4, 3], 7));
+
+////////Sliding Window -findLongestSubstring ////
+function findLongestSubstring(str) {
+  let obj = {};
+  let counter = 0;
+  for (let i of str) {
+    if (!obj[i]) obj[i] = 1;
+    else obj[i]++;
+  }
+  for (let i of Object.values(obj)) {
+    if (i === 1) counter++;
+  }
+  return counter;
+}
+
+// function findLongestSubstring(str) {
+//   let longest = 0;
+//   let seen = {};
+//   let start = 0;
+
+//   for (let i = 0; i < str.length; i++) {
+//     let char = str[i];
+//     if (seen[char]) {
+//       start = Math.max(start, seen[char]);
+//     }
+//     // index - beginning of substring + 1 (to include current in count)
+//     longest = Math.max(longest, i - start + 1);
+//     // store the index of the next char so as to not double count
+//     seen[char] = i + 1;
+//   }
+//   return longest;
+// }
+
+// console.log(findLongestSubstring("loloa"));
