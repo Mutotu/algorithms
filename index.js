@@ -368,13 +368,13 @@ class LinkedList {
 
 ////////////Doubly Linked List
 
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-    this.prev = null;
-  }
-}
+// class Node {
+//   constructor(value) {
+//     this.value = value;
+//     this.next = null;
+//     this.prev = null;
+//   }
+// }
 
 class DoublyLinkedList {
   constructor(value) {
@@ -493,4 +493,79 @@ class DoublyLinkedList {
   }
 }
 
-let myDouble = new DoublyLinkedList(7);
+// let myDouble = new DoublyLinkedList(7);
+
+////////STACKCS
+//
+/////Class Node
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+class Stack {
+  constructor(value) {
+    const newNode = new Node(value);
+    this.top = newNode;
+    this.length = 1;
+  }
+  push(value) {
+    const newNode = new Node(value);
+    if (this.length === 0) {
+      this.top = newNode;
+    } else {
+      newNode.next = this.top;
+      this.top = newNode;
+    }
+    this.length++;
+    return this;
+  }
+  pop() {
+    if (this.length === 0) return undefined;
+    let temp = this.top;
+    this.top = this.top.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
+}
+
+let mystack = new Stack(11);
+
+//////QUEUe
+class Queue {
+  constructor(value) {
+    const newNode = new Node(value);
+    this.first = newNode;
+    this.last = newNode;
+    this.length = 1;
+  }
+  enqueue(value) {
+    const newNode = new Node(value);
+    if (this.length === 0) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
+  dequeue() {
+    if (this.length === 0) return undefined;
+    let temp = this.first;
+    if (this.length === 1) {
+      this.first = null;
+      this.last = null;
+    } else {
+      this.first = this.first.next;
+      tmep.next = null;
+    }
+    this.length--;
+    return temp;
+  }
+}
+// let myQueue = new Queue(9)
