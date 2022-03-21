@@ -1,3 +1,34 @@
+//////Remove Element
+function removeElement(nums, val) {
+  while (nums.includes(val)) {
+    nums.splice(nums.indexOf(val), 1);
+  }
+  return nums.length;
+}
+console.log(removeElement([3, 2, 2, 3], 3));
+
+/////Two Sum
+function twoSUm(nums, target) {
+  // let temp = 0;
+  // for (let i = 1; i < nums.length; i++) {
+  //   if (nums[temp] + nums[i] === target) return [temp, i];
+  //   else {
+  //     temp++;
+  //   }
+  // }
+  let obj = {};
+  for (let i = 0; i < nums.length; i++) {
+    let tot = target - nums[i];
+    if (tot in obj) {
+      console.log(obj);
+      return [i, obj[tot]];
+    } else {
+      obj[nums[i]] = i;
+    }
+  }
+}
+// console.log(twoSUm([3, 2, 4, 5, 3], 9));
+
 // /////////// Frequency Counter/////
 
 function charCount(str) {
