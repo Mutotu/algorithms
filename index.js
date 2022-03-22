@@ -1,3 +1,22 @@
+//////Longest Common Prefix
+
+function longetsCommonPrefix(arr) {
+  let i = 0;
+
+  while (arr[0][i] && arr.every((a) => a[i] === arr[0][i])) i++;
+
+  return arr[0].substr(0, i);
+}
+
+console.log(longetsCommonPrefix(["flower", "flow", "flight"]));
+
+//////Palindrome Number//
+function isPalindrome(x) {
+  return Number(x.toString().split("").reverse().join("")) === x;
+}
+
+// console.log(isPalindrome(1212));
+
 //////Remove Element
 function removeElement(nums, val) {
   while (nums.includes(val)) {
@@ -5,7 +24,7 @@ function removeElement(nums, val) {
   }
   return nums.length;
 }
-console.log(removeElement([3, 2, 2, 3], 3));
+// console.log(removeElement([3, 2, 2, 3], 3));
 
 /////Two Sum
 function twoSUm(nums, target) {
@@ -535,34 +554,34 @@ class DoublyLinkedList {
 //     this.next = null;
 //   }
 // }
-class Stack {
-  constructor(value) {
-    const newNode = new Node(value);
-    this.top = newNode;
-    this.length = 1;
-  }
-  push(value) {
-    const newNode = new Node(value);
-    if (this.length === 0) {
-      this.top = newNode;
-    } else {
-      newNode.next = this.top;
-      this.top = newNode;
-    }
-    this.length++;
-    return this;
-  }
-  pop() {
-    if (this.length === 0) return undefined;
-    let temp = this.top;
-    this.top = this.top.next;
-    temp.next = null;
-    this.length--;
-    return temp;
-  }
-}
+// class Stack {
+//   constructor(value) {
+//     const newNode = new Node(value);
+//     this.top = newNode;
+//     this.length = 1;
+//   }
+//   push(value) {
+//     const newNode = new Node(value);
+//     if (this.length === 0) {
+//       this.top = newNode;
+//     } else {
+//       newNode.next = this.top;
+//       this.top = newNode;
+//     }
+//     this.length++;
+//     return this;
+//   }
+//   pop() {
+//     if (this.length === 0) return undefined;
+//     let temp = this.top;
+//     this.top = this.top.next;
+//     temp.next = null;
+//     this.length--;
+//     return temp;
+//   }
+// }
 
-let mystack = new Stack(11);
+// let mystack = new Stack(11);
 
 //////QUEUe
 class Queue {
