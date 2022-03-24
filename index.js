@@ -1,3 +1,34 @@
+////?Single Number
+
+function singleNumber(arr) {
+  let obj = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!obj[arr[i]]) obj[arr[i]] = 1;
+    else obj[arr[i]]++;
+  }
+
+  for (let i in obj) {
+    if (obj[i] === 1) return i;
+  }
+}
+// console.log(singleNumber([4, 1, 2, 1, 2]));
+
+////?Single Number 2
+function singleNumber2(arr) {
+  let obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (!obj[arr[i]]) obj[arr[i]] = 1;
+    else {
+      obj[arr[i]]++;
+    }
+  }
+  for (let i in obj) {
+    if (obj[i] === 1) return i;
+  }
+}
+console.log(singleNumber2([0, 1, 0, 1, 0, 1, 99]));
+
 //////Longest Common Prefix
 
 function longetsCommonPrefix(arr) {
@@ -8,7 +39,7 @@ function longetsCommonPrefix(arr) {
   return arr[0].substr(0, i);
 }
 
-console.log(longetsCommonPrefix(["flower", "flow", "flight"]));
+// console.log(longetsCommonPrefix(["flower", "flow", "flight"]));
 
 //////Palindrome Number//
 function isPalindrome(x) {
