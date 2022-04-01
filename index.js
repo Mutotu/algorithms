@@ -785,3 +785,20 @@
 // }
 
 // console.log(largestUniqueNumber([9, 9, 8, 8, 9, 7, 5]));
+
+function solution(A) {
+  // write your code in JavaScript (Node.js 8.9.4)
+  let temp = A[0];
+  for (let i = 1; i < A.length; i++) {
+    if (A[i] < temp) temp = A[i];
+  }
+
+  for (let i = 0; i < A.length; i++) {
+    if (A.includes(temp)) {
+      temp++;
+    }
+  }
+  return temp;
+}
+
+console.log(solution([6, 4, 1, 2, 5, 9, 7, -2]));
