@@ -786,19 +786,77 @@
 
 // console.log(largestUniqueNumber([9, 9, 8, 8, 9, 7, 5]));
 
-function solution(A) {
-  // write your code in JavaScript (Node.js 8.9.4)
-  let temp = A[0];
-  for (let i = 1; i < A.length; i++) {
-    if (A[i] < temp) temp = A[i];
-  }
+// function solution(A) {
+//   // write your code in JavaScript (Node.js 8.9.4)
+//   let temp = A[0];
+//   for (let i = 1; i < A.length; i++) {
+//     if (A[i] < temp) temp = A[i];
+//   }
 
-  for (let i = 0; i < A.length; i++) {
-    if (A.includes(temp)) {
-      temp++;
-    }
-  }
-  return temp;
-}
+//   for (let i = 0; i < A.length; i++) {
+//     if (A.includes(temp)) {
+//       temp++;
+//     }
+//   }
+//   return temp;
+// }
 
-console.log(solution([6, 4, 1, 2, 5, 9, 7, -2]));
+// console.log(solution([6, 4, 1, 2, 5, 9, 7, -2]));
+////////////////////////////////////////////////////////////////
+//removed else
+// function solution(X, Y, A) {
+//   var N = A.length;
+//   var result = -1;
+//   var nX = 0;
+//   var nY = 0;
+
+//   for (var i = 0; i < N; i++) {
+//     if (A[i] == X) nX += 1;
+//     if (A[i] == Y) nY += 1;
+//     if (nX == nY) result = i;
+//   }
+//   return result;
+// }
+
+// function solution(N, K) {
+//   // write your code in JavaScript (Node.js 8.9.4)
+//   let i = 100;
+//   let res = 0;
+//   while (i > 0) {
+//     let d = N / i;
+//     N -= d * i;
+//     while (d < 10 && K > 0) {
+//       d++;
+//       K--;
+//     }
+//     res += d;
+//     res *= i;
+//     i = i / 10;
+//   }
+//   return parseInt(K);
+// }
+
+// console.log(solution(512, 10));
+// def solution(n, k):
+//     arr = reversal(n)
+//     i = 0
+//     while k > 0 and i < len(arr):
+//         if arr[i] + 1 > 9:
+//             i += 1
+//         else:
+//             arr[i] += 1
+//             k -= 1
+
+//     res = 0
+//     for num in arr:
+//         res *= 10
+//         res += num
+//     return res
+
+// def reversal(n):
+//     x = []
+//     while n > 0:
+//         x.append(n % 10)
+//         n //= 10
+//     x.reverse()
+//     return x
